@@ -11,6 +11,7 @@ RUN mkdir /var/www/owncloud/data
 RUN chown -R www-data:www-data /var/www/owncloud
 
 ADD ./001-owncloud.conf /etc/apache2/sites-available/
+ADD ./php.ini /etc/php5/apache2/
 RUN rm -f /etc/apache2/sites-enabled/000*
 RUN ln -s /etc/apache2/sites-available/001-owncloud.conf /etc/apache2/sites-enabled/
 RUN a2enmod rewrite
